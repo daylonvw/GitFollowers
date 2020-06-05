@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		031825AA248A728D00AD44EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031825A9248A728D00AD44EE /* AppDelegate.swift */; };
 		031825AC248A728D00AD44EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031825AB248A728D00AD44EE /* SceneDelegate.swift */; };
-		031825AE248A728D00AD44EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031825AD248A728D00AD44EE /* ViewController.swift */; };
 		031825B3248A728E00AD44EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031825B2248A728E00AD44EE /* Assets.xcassets */; };
 		031825B6248A728E00AD44EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031825B4248A728E00AD44EE /* LaunchScreen.storyboard */; };
+		034A0A15248A810900A1F6FE /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A0A14248A810900A1F6FE /* FavoritesListVC.swift */; };
+		034A0A17248A814100A1F6FE /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A0A16248A814100A1F6FE /* SearchVC.swift */; };
+		034A0A19248A8EAC00A1F6FE /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A0A18248A8EAC00A1F6FE /* GFButton.swift */; };
+		034A0A1B248A914E00A1F6FE /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034A0A1A248A914E00A1F6FE /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		031825A6248A728D00AD44EE /* GitFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031825A9248A728D00AD44EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		031825AB248A728D00AD44EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		031825AD248A728D00AD44EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		031825B2248A728E00AD44EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		031825B5248A728E00AD44EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		031825B7248A728E00AD44EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034A0A14248A810900A1F6FE /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		034A0A16248A814100A1F6FE /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		034A0A18248A8EAC00A1F6FE /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		034A0A1A248A914E00A1F6FE /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +62,13 @@
 			children = (
 				031825A9248A728D00AD44EE /* AppDelegate.swift */,
 				031825AB248A728D00AD44EE /* SceneDelegate.swift */,
-				031825AD248A728D00AD44EE /* ViewController.swift */,
+				034A0A14248A810900A1F6FE /* FavoritesListVC.swift */,
+				034A0A16248A814100A1F6FE /* SearchVC.swift */,
+				034A0A18248A8EAC00A1F6FE /* GFButton.swift */,
 				031825B2248A728E00AD44EE /* Assets.xcassets */,
 				031825B4248A728E00AD44EE /* LaunchScreen.storyboard */,
 				031825B7248A728E00AD44EE /* Info.plist */,
+				034A0A1A248A914E00A1F6FE /* GFTextField.swift */,
 			);
 			path = GitFollowers;
 			sourceTree = "<group>";
@@ -134,7 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031825AE248A728D00AD44EE /* ViewController.swift in Sources */,
+				034A0A1B248A914E00A1F6FE /* GFTextField.swift in Sources */,
+				034A0A17248A814100A1F6FE /* SearchVC.swift in Sources */,
+				034A0A19248A8EAC00A1F6FE /* GFButton.swift in Sources */,
+				034A0A15248A810900A1F6FE /* FavoritesListVC.swift in Sources */,
 				031825AA248A728D00AD44EE /* AppDelegate.swift in Sources */,
 				031825AC248A728D00AD44EE /* SceneDelegate.swift in Sources */,
 			);
