@@ -18,6 +18,7 @@ class FollowerListVC: UIViewController {
 	var collectionView: UICollectionView!
 	var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 	var followers: [Follower] = []
+	var filteredFollowers: [Follower] = []
 	var pageNumber = 1
 	var hasMoreFollowers = true
 
@@ -26,6 +27,7 @@ class FollowerListVC: UIViewController {
 
 		self.configureViewController()
 		self.configureCollectionView()
+		self.configureSearchController()
 		self.getFollowers(username: self.userName, page: self.pageNumber)
 		self.configureDataSource()
     }
@@ -48,6 +50,14 @@ class FollowerListVC: UIViewController {
 		navigationController?.navigationBar.prefersLargeTitles = true
 	}
 
+	func configureSearchController() {
+		let searchController = UISearchController()
+		searchController.searchResultsUpdater = self
+		searchController.searchBar.placeholder = "Search"
+		searchController.searchBar.delegate = self
+		self.navigationItem.searchController = searchController
+	}
+
 	func configureDataSource() {
 		self.dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: self.collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as? FollowerCell
@@ -57,23 +67,34 @@ class FollowerListVC: UIViewController {
 		})
 	}
 
-	func updateData() {
+	func updateData(on followers: [Follower]) {
 		var snapShot = NSDiffableDataSourceSnapshot<Section, Follower>()
 		snapShot.appendSections([.main])
-		snapShot.appendItems(self.followers)
+		snapShot.appendItems(followers)
 		DispatchQueue.main.async {
 			self.dataSource.apply(snapShot, animatingDifferences: true)
 		}
 	}
 
 	func getFollowers(username: String, page: Int) {
-		NetworkManager.shared.getFollowers(for: self.userName, page: page) {[weak self] (result) in // weak self = self in closure is a weak reference so no reference is hold by Network manager when view controller is NIL
+		self.showLoadingView()
+		NetworkManager.shared.getFollowers(for: self.userName, page: page) {[weak self] (result) in
 			guard let self = self else { return }
+			self.dismissLoadingView()
 
 			switch result {
 				case .success(let followers):
 					self.followers.append(contentsOf: followers)
-					self.updateData()
+
+					if self.followers.isEmpty {
+						let message = "This user does not have any followers. Go Follow them"
+						DispatchQueue.main.async {
+							self.showEmptyStateView(with: message, in: self.view)
+							return
+						}
+					}
+
+					self.updateData(on: self.followers)
 					if followers.count < 100 { self.hasMoreFollowers = false }
 				case .failure(let error):
 					self.presentGFAlertOnMainThread(title: "Bad stuff happend", message: error.rawValue, buttonTitle: "Ok")
@@ -94,5 +115,18 @@ extension FollowerListVC: UICollectionViewDelegate {
 			self.pageNumber += 1
 			self.getFollowers(username: self.userName,page: self.pageNumber)
 		}
+	}
+}
+
+extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+	func updateSearchResults(for searchController: UISearchController) {
+		guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+
+		self.filteredFollowers = self.followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+		self.updateData(on: self.filteredFollowers)
+	}
+
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		self.updateData(on: self.followers)
 	}
 }
