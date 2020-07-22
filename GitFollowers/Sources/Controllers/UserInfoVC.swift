@@ -11,42 +11,51 @@ import UIKit
 class UserInfoVC: UIViewController {
 
 	let headerView = UIView()
+	let itemViewOne = UIView()
+	let itemViewTWo = UIView()
+	var itemViews: [UIView] = []
 
 	var user: Follower!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.view.backgroundColor = .systemBackground
 
-		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-		self.navigationItem.leftBarButtonItem = doneButton
-
+		self.configureViewcontroller()
 		self.layoutUI()
-
-		NetworkManager.shared.getUserInfo(for: self.user.login) { [weak self] result in
-			guard let self = self else { return }
-
-			switch result {
-				case .success(let user):
-					DispatchQueue.main.async {
-						self.add(childVC: GFGUserInfoHeaderVC(user: user), to: self.headerView)
-					}
-				case .failure(let message):
-					self.presentGFAlertOnMainThread(title: "Something went wrong", message: message.rawValue, buttonTitle: "Ok")
-			}
-		}
-
+		self.getUserInfo()
     }
 
+	func configureViewcontroller() {
+		self.view.backgroundColor = .systemBackground
+		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
+		self.navigationItem.leftBarButtonItem = doneButton
+	}
+
 	func layoutUI() {
-		self.view.addSubview(self.headerView)
-		self.headerView.translatesAutoresizingMaskIntoConstraints = false
+		self.itemViews = [headerView, itemViewOne, itemViewTWo]
+
+		let padding: CGFloat = 20
+		let itemHeight: CGFloat = 140
+
+		for itemView in self.itemViews {
+			self.view.addSubview(itemView)
+			itemView.translatesAutoresizingMaskIntoConstraints = false
+
+			NSLayoutConstraint.activate([
+				itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+				itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+			])
+		}
 
 		NSLayoutConstraint.activate([
 			self.headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			self.headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			self.headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			self.headerView.heightAnchor.constraint(equalToConstant: 180)
+			self.headerView.heightAnchor.constraint(equalToConstant: 180),
+
+			self.itemViewOne.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: padding),
+			self.itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+
+			self.itemViewTWo.topAnchor.constraint(equalTo: self.itemViewOne.bottomAnchor, constant: padding),
+			self.itemViewTWo.heightAnchor.constraint(equalToConstant: itemHeight)
 		])
 	}
 
@@ -55,6 +64,21 @@ class UserInfoVC: UIViewController {
 		containerView.addSubview(childVC.view)
 		childVC.view.frame = containerView.bounds
 		childVC.didMove(toParent: self)
+	}
+
+	func getUserInfo() {
+		NetworkManager.shared.getUserInfo(for: self.user.login) { [weak self] result in
+			guard let self = self else { return }
+
+			switch result {
+				case .success(let user):
+					DispatchQueue.main.async {
+						self.add(childVC: GFGUserInfoHeaderVC(user: user), to: self.headerView)
+				}
+				case .failure(let message):
+					self.presentGFAlertOnMainThread(title: "Something went wrong", message: message.rawValue, buttonTitle: "Ok")
+			}
+		}
 	}
 
 	@objc
