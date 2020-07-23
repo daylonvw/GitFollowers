@@ -54,6 +54,8 @@ class GFItemInfoView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+
+		self.configure()
 	}
 
 	required init?(coder: NSCoder) {
@@ -65,7 +67,7 @@ class GFItemInfoView: UIView {
 	// —————————————————————————————————————————————————————————————————————————
 
 	private func configure() {
-		self.addSubview(symbolImageView)
+		self.addSubview(self.symbolImageView)
 		self.addSubview(self.titleLabel)
 		self.addSubview(self.countLabel)
 
