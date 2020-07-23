@@ -112,7 +112,7 @@
 				03E363F2248FABCE00E09649 /* Uttlities */,
 				03CD9997248E616300591E34 /* Application */,
 				03CD999B248E628C00591E34 /* Models */,
-				03CD999A248E627C00591E34 /* Views */,
+				03CD999A248E627C00591E34 /* CustonViews */,
 				03CD9998248E617700591E34 /* Controllers */,
 				03CD9999248E619900591E34 /* Extensions */,
 			);
@@ -156,21 +156,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		03CD999A248E627C00591E34 /* Views */ = {
+		03CD999A248E627C00591E34 /* CustonViews */ = {
 			isa = PBXGroup;
 			children = (
-				034A0A18248A8EAC00A1F6FE /* GFButton.swift */,
-				034A0A1A248A914E00A1F6FE /* GFTextField.swift */,
-				03CD998D248B9FB300591E34 /* GFTitleLabel.swift */,
-				03CD998F248BA0F000591E34 /* GFBodyLabel.swift */,
-				033495682490C09E0032A65F /* FollowerCell.swift */,
-				0334956A2490C0FB0032A65F /* GFAvatarImageView.swift */,
-				0334956E2490D9490032A65F /* GFCollectionViewFlowLayout.swift */,
-				0353F44C2493759500352834 /* GFEmpyStateView.swift */,
-				03C3196B24A0AFC90091BFC2 /* GFSecondaryTitleLabel.swift */,
-				03E79ED124C876CF00980C01 /* GFItemInfoView.swift */,
+				03E191EF24C98C07007CBF1F /* Buttons */,
+				03E191EE24C98BF6007CBF1F /* Cell */,
+				03E191ED24C98BDE007CBF1F /* Views */,
+				03E191EC24C98B6C007CBF1F /* Labels */,
 			);
-			path = Views;
+			path = CustonViews;
 			sourceTree = "<group>";
 		};
 		03CD999B248E628C00591E34 /* Models */ = {
@@ -181,6 +175,44 @@
 				03E363F0248F99CF00E09649 /* NetworkManager.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03E191EC24C98B6C007CBF1F /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				03CD998F248BA0F000591E34 /* GFBodyLabel.swift */,
+				03C3196B24A0AFC90091BFC2 /* GFSecondaryTitleLabel.swift */,
+				03CD998D248B9FB300591E34 /* GFTitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		03E191ED24C98BDE007CBF1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				034A0A1A248A914E00A1F6FE /* GFTextField.swift */,
+				0334956A2490C0FB0032A65F /* GFAvatarImageView.swift */,
+				0353F44C2493759500352834 /* GFEmpyStateView.swift */,
+				03E79ED124C876CF00980C01 /* GFItemInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03E191EE24C98BF6007CBF1F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				033495682490C09E0032A65F /* FollowerCell.swift */,
+				0334956E2490D9490032A65F /* GFCollectionViewFlowLayout.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		03E191EF24C98C07007CBF1F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				034A0A18248A8EAC00A1F6FE /* GFButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		03E363F2248FABCE00E09649 /* Uttlities */ = {

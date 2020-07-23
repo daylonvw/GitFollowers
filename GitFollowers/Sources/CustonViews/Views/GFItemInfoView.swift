@@ -91,6 +91,9 @@ class GFItemInfoView: UIView {
 		])
 	}
 
+	// —————————————————————————————————————————————————————————————————————————
+	// MARK: - Public Functions
+	// —————————————————————————————————————————————————————————————————————————
 	public func set(itemInfoType: ItemInfoType, withCount count: Int) {
 		self.symbolImageView.image = itemInfoType.symbolImage
 		self.titleLabel.text = itemInfoType.title
