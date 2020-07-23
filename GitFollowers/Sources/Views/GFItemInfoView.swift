@@ -23,6 +23,19 @@ enum ItemInfoType {
 				return UIImage(systemName: SFSymbols.following)!
 		}
 	}
+
+	var title: String {
+		switch self {
+			case .repos:
+				return "Public Repos"
+			case .gists:
+				return "Public Gists"
+			case .followers:
+				return "Followers"
+			case .following:
+				return "Following"
+		}
+	}
 }
 
 class GFItemInfoView: UIView {
@@ -79,20 +92,8 @@ class GFItemInfoView: UIView {
 	}
 
 	public func set(itemInfoType: ItemInfoType, withCount count: Int) {
-		switch itemInfoType {
-			case .repos:
-				self.symbolImageView.image = UIImage(systemName: SFSymbols.repos)
-				self.titleLabel.text = "Public Repos"
-			case .gists:
-				self.symbolImageView.image = UIImage(systemName: SFSymbols.gists)
-				self.titleLabel.text = "Public Gists"
-			case .followers:
-				self.symbolImageView.image = UIImage(systemName: SFSymbols.followers)
-				self.titleLabel.text = "Followers"
-			case .following:
-				self.symbolImageView.image = UIImage(systemName: SFSymbols.following)
-				self.titleLabel.text = "Public Repos"
-		}
+		self.symbolImageView.image = itemInfoType.symbolImage
+		self.titleLabel.text = itemInfoType.title
 		self.countLabel.text = String(count)
 	}
 }
