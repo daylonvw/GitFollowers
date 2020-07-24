@@ -13,6 +13,7 @@ class UserInfoVC: UIViewController {
 	let headerView = UIView()
 	let itemViewOne = UIView()
 	let itemViewTWo = UIView()
+	let dateLabel = GFBodyLabel(textAligment: .center)
 	var itemViews: [UIView] = []
 
 	var user: Follower!
@@ -32,7 +33,7 @@ class UserInfoVC: UIViewController {
 	}
 
 	func layoutUI() {
-		self.itemViews = [headerView, itemViewOne, itemViewTWo]
+		self.itemViews = [self.headerView, self.itemViewOne, self.itemViewTWo, self.dateLabel]
 
 		let padding: CGFloat = 20
 		let itemHeight: CGFloat = 140
@@ -55,7 +56,10 @@ class UserInfoVC: UIViewController {
 			self.itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
 
 			self.itemViewTWo.topAnchor.constraint(equalTo: self.itemViewOne.bottomAnchor, constant: padding),
-			self.itemViewTWo.heightAnchor.constraint(equalToConstant: itemHeight)
+			self.itemViewTWo.heightAnchor.constraint(equalToConstant: itemHeight),
+
+			self.dateLabel.topAnchor.constraint(equalTo: self.itemViewTWo.bottomAnchor, constant: padding),
+			self.dateLabel.heightAnchor.constraint(equalToConstant: 18)
 		])
 	}
 
@@ -76,6 +80,7 @@ class UserInfoVC: UIViewController {
 						self.add(childVC: GFGUserInfoHeaderVC(user: user), to: self.headerView)
 						self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
 						self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTWo)
+						self.dateLabel.text = "On github since \(user.createdAt.convertToDisplayFormat())"
 				}
 				case .failure(let message):
 					self.presentGFAlertOnMainThread(title: "Something went wrong", message: message.rawValue, buttonTitle: "Ok")
