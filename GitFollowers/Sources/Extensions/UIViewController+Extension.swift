@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 
 fileprivate var containerView: UIView!
@@ -56,5 +57,10 @@ extension UIViewController {
 		let emptyStateView = GFEmpyStateView(message: message)
 		emptyStateView.frame = view.bounds
 		view.addSubview(emptyStateView)
+	}
+
+	func presentSafariController(with url: URL)  {
+		let safariController = SFSafariViewController(url: url)
+		self.present(safariController, animated: true)
 	}
 }

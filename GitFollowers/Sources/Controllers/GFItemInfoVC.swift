@@ -45,6 +45,7 @@ class GFItemInfoVC: UIViewController {
 		self.configureBackGroundView()
 		self.layOutUI()
 		self.configureStackView()
+		self.configureActionButton()
     }
 
 	// —————————————————————————————————————————————————————————————————————————
@@ -75,6 +76,13 @@ class GFItemInfoVC: UIViewController {
 			self.actionButton.heightAnchor.constraint(equalToConstant: 44)
 		])
 	}
+
+	private func configureActionButton() {
+		self.actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+	}
+
+	@objc
+	func actionButtonTapped() {}
 
 	private func configureStackView() {
 		self.stackView.axis = .horizontal

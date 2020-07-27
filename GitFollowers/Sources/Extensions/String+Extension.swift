@@ -16,7 +16,6 @@ extension String {
 		return emailPredicate.evaluate(with: self)
 	}
 
-
 	var isValidPassword: Bool {
 		//Regex restricts to 8 character minimum, 1 capital letter, 1 lowercase letter, 1 number
 		//If you have different requirements a google search for "password requirement regex" will help
@@ -24,7 +23,6 @@ extension String {
 		let passwordPredicate   = NSPredicate(format: "SELF MATCHES %@", passwordFormat)
 		return passwordPredicate.evaluate(with: self)
 	}
-
 
 	var isValidPhoneNumber: Bool {
 		let phoneNumberFormat = "^\\d{3}-\\d{3}-\\d{4}$"

@@ -14,6 +14,7 @@ class GFFollowerItemVC: GFItemInfoVC {
 	// MARK: - Properties
 	// —————————————————————————————————————————————————————————————————————————
 
+	weak var delegate: UserInfoVCDelegate!
 
 	// —————————————————————————————————————————————————————————————————————————
 	// MARK: - Controller Life Cycle
@@ -37,5 +38,9 @@ class GFFollowerItemVC: GFItemInfoVC {
 		self.itemInfoViewOne.set(itemInfoType: .followers, withCount: self.user.followers)
 		self.itemInfoViewTwo.set(itemInfoType: .following, withCount: self.user.following)
 		self.actionButton.set(backgroundColor: .systemGreen, title: "Get Followers")
+	}
+
+	override func actionButtonTapped() {
+		self.delegate.didTapGetFollowers(for: self.user)
 	}
 }
