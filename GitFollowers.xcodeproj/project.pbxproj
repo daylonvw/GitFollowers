@@ -24,6 +24,7 @@
 		0352D19524C9C97A001BA2D4 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0352D19424C9C97A001BA2D4 /* GFFollowerItemVC.swift */; };
 		0353F44D2493759500352834 /* GFEmpyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353F44C2493759500352834 /* GFEmpyStateView.swift */; };
 		038E9AD72498BBCA00FEFE97 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038E9AD62498BBCA00FEFE97 /* UserInfoVC.swift */; };
+		03B549F124E150F9005F800C /* PersitenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B549F024E150F9005F800C /* PersitenceManager.swift */; };
 		03C3196A24A0AF750091BFC2 /* GFGUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3196924A0AF750091BFC2 /* GFGUserInfoHeaderVC.swift */; };
 		03C3196C24A0AFC90091BFC2 /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3196B24A0AFC90091BFC2 /* GFSecondaryTitleLabel.swift */; };
 		03C3196E24A0D4D90091BFC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3196D24A0D4D90091BFC2 /* Constants.swift */; };
@@ -60,6 +61,7 @@
 		0352D19424C9C97A001BA2D4 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		0353F44C2493759500352834 /* GFEmpyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmpyStateView.swift; sourceTree = "<group>"; };
 		038E9AD62498BBCA00FEFE97 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		03B549F024E150F9005F800C /* PersitenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersitenceManager.swift; sourceTree = "<group>"; };
 		03C3196924A0AF750091BFC2 /* GFGUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFGUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		03C3196B24A0AFC90091BFC2 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		03C3196D24A0D4D90091BFC2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -149,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				03CD9991248BA1DC00591E34 /* GFAlertVC.swift */,
-				0334956C2490C8420032A65F /* FavoritesListVC.swift */,
 				03C3196924A0AF750091BFC2 /* GFGUserInfoHeaderVC.swift */,
 				0352D19024C9BED6001BA2D4 /* GFItemInfoVC.swift */,
 				0352D19224C9C35B001BA2D4 /* GFRepoItemVC.swift */,
@@ -185,6 +186,7 @@
 				03E363EC248F90DA00E09649 /* Follower.swift */,
 				03E363EE248F911500E09649 /* User.swift */,
 				03E363F0248F99CF00E09649 /* NetworkManager.swift */,
+				03B549F024E150F9005F800C /* PersitenceManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +244,7 @@
 				034A0A16248A814100A1F6FE /* SearchVC.swift */,
 				03CD9989248B901600591E34 /* FollowerListVC.swift */,
 				038E9AD62498BBCA00FEFE97 /* UserInfoVC.swift */,
+				0334956C2490C8420032A65F /* FavoritesListVC.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -273,7 +276,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Daylon van Wel";
 				TargetAttributes = {
 					031825A5248A728D00AD44EE = {
@@ -329,6 +332,7 @@
 				0334956B2490C0FB0032A65F /* GFAvatarImageView.swift in Sources */,
 				03E363ED248F90DA00E09649 /* Follower.swift in Sources */,
 				0352D19324C9C35B001BA2D4 /* GFRepoItemVC.swift in Sources */,
+				03B549F124E150F9005F800C /* PersitenceManager.swift in Sources */,
 				038E9AD72498BBCA00FEFE97 /* UserInfoVC.swift in Sources */,
 				03CD998A248B901600591E34 /* FollowerListVC.swift in Sources */,
 				03CD998E248B9FB300591E34 /* GFTitleLabel.swift in Sources */,
@@ -388,6 +392,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -448,6 +453,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

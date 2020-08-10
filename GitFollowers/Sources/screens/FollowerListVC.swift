@@ -53,6 +53,14 @@ class FollowerListVC: UIViewController {
 	func configureViewController() {
 		self.view.backgroundColor = .systemBackground
 		navigationController?.navigationBar.prefersLargeTitles = true
+
+		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+		self.navigationItem.leftBarButtonItem = addButton
+	}
+
+	@objc
+	func addButtonTapped() {
+
 	}
 
 	func configureSearchController() {
